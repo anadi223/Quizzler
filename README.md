@@ -1,10 +1,12 @@
-# flutterapp3
+# Quizzler
 
-A new Flutter application.
+A flutter appplication for fun.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project contains a lot of questions to answer.
+
+Made with ❤️ by Anadi
 
 A few resources to get you started if this is your first Flutter project:
 
