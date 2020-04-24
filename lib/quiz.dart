@@ -11,6 +11,7 @@ class Quizzler extends StatefulWidget {
 
 class _QuizzlerState extends State<Quizzler> {
   var progress;
+  var score;
   var i;
   List<Icon> scoreKeeper = [];
 
@@ -19,10 +20,15 @@ class _QuizzlerState extends State<Quizzler> {
     var correctattempt=0;
 
     setState(() {
+
       if (quizBrain.isFinished() == true) {
         Alert(
           context: context,
           title: "END OF QUIZ",
+          content: Column(children:<Widget>[
+            Text("Your Score"),
+            Text(score.toString()),
+          ]),
           buttons: [
             DialogButton(
               child: Text(
@@ -47,6 +53,7 @@ class _QuizzlerState extends State<Quizzler> {
         scoreKeeper.clear();
       } else {
         if (userPickedAnswer == correctAnswer) {
+          score++;
           progress = progress +1 / quizBrain.questionNumber();
           scoreKeeper.add(Icon(
             Icons.check,
@@ -68,6 +75,7 @@ class _QuizzlerState extends State<Quizzler> {
 
   @override
   void initState() {
+    score=0;
     super.initState();
     progress = 1/ quizBrain.questionNumber();
   }
